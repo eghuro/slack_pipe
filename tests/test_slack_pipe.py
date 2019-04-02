@@ -7,7 +7,7 @@
 import unittest
 from click.testing import CliRunner
 
-from slack_pipe import slack_pipe
+from slack_pipe import pipe
 from slack_pipe import cli
 
 
