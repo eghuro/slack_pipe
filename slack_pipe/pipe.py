@@ -6,6 +6,7 @@ import sys
 from atenvironment import environment
 from slackclient import SlackClient
 
+
 @environment('SLACK_TOKEN')
 def pipe(channel, slack_token):
     sc = SlackClient(slack_token)

@@ -6,14 +6,15 @@ import click
 import atenvironment
 from slack_pipe.pipe import pipe
 
+
 @click.command()
-@click.option('-c', '--channel', required=True, type=str, help='Slack channel to use')
+@click.option('-c', '--channel', required=True, help='Slack channel to use')
 def main(channel):
     try:
         pipe(channel)
         return 0
-    except atenvironment.EnvironMiss as m:
-        click.echo("Please provide your Slack token as an environment variable")
+    except atenvironment.EnvironMiss:
+        click.echo("Please provide Slack token as an environment variable")
 
 
 if __name__ == "__main__":
