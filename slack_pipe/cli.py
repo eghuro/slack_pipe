@@ -3,15 +3,17 @@
 """Console script for slack_pipe."""
 import sys
 import click
-
+import atenvironment
+from slack_pipe.pipe import pipe
 
 @click.command()
-def main(args=None):
-    """Console script for slack_pipe."""
-    click.echo("Replace this message by putting your code into "
-               "slack_pipe.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
-    return 0
+@click.option('-c', '--channel', required=True, type=str, help='Slack channel to use')
+def main(channel):
+    try:
+        pipe(channel)
+        return 0
+    except atenvironment.EnvironMiss as m:
+        click.echo("Please provide your Slack token as an environment variable")
 
 
 if __name__ == "__main__":
