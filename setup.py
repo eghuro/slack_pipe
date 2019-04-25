@@ -11,11 +11,14 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 requirements = ['Click>=6.0', 'atenvironment', 'slackclient']
 
 setup_requirements = [ ]
 
-test_requirements = [ ]
+test_requirements = required
 
 setup(
     author="Alexandr Mansurov",
